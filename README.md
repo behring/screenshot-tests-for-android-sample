@@ -1,6 +1,6 @@
 # screenshot-tests-for-android集成指南
 
-screenshot-tests-for-android是一个基于截图的测试库。在android运行instrumentation tests的时候，该库可以快速准确的生成截图并断言和上次截图的差异变化。
+[screenshot-tests-for-android](https://github.com/facebook/screenshot-tests-for-android)是一个基于截图的测试库。在android运行instrumentation tests的时候，该库可以快速准确的生成截图并断言和上次截图的差异变化，由facebook开源。
 
 ## 集成
 1. 在项目根目录的`build.gradle`文件中添加gradle plugin：
@@ -97,20 +97,25 @@ screenshot-tests-for-android是一个基于截图的测试库。在android运行
     
 2. 运行测试生成截图。`com.facebook.testing.screenshot`插件为我们提供了如下gradle task:
     - clean<App Variant>AndroidTestScreenshots
+        
         > 清除最后一次生成的截图report
         
     - pull<App Variant>AndroidTestScreenshots
+        
         > 从设备中获取截图
         
     - record<App Variant>AndroidTestScreenshots
+        
         > 安装并运行截图测试，然后为后续验证记录输出结果
         
     - run<App Variant>AndroidTestScreenshots
+        
         > 安装并运行截图测试，然后生成report
-                
+        
     - verify<App Variant>AndroidTestScreenshots
         > 安装并运行截图测试，然后对比上一次的记录的截图验证它们的输出
         
+    
     因此，首次运行截图测试时，应该调用`./gradlew recordDebugAndroidTestScreenshots`生成base截图，作为验证UI样式的基准。之后运行`./gradlew verifyDebugAndroidTestScreenshots`来判断UI是否发生变化。
     
     
