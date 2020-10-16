@@ -15,7 +15,22 @@
     }
     ```
 
-2. 在`src/androidTest/java`目录下创建自定义`ScreenshotTestRunner`，`ScreenshotTestRunner`根据项目测试需求继承不同类型的TestRunner。`ScreenshotTestRunner`代码如下：
+2. 在项目工程(application/android library)目录的`build.gradle`文件中**引用插件**并**添加依赖**。
+    
+    ```groovy
+    // 引用插件
+    apply plugin: 'com.facebook.testing.screenshot'
+        
+    dependencies {
+      ...
+        // 添加依赖
+      androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-common:0.13.0'
+      androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-litho:0.13.0'
+    }
+    ```
+    
+3. 在`src/androidTest/java`目录下创建自定义`ScreenshotTestRunner`，`ScreenshotTestRunner`根据项目测试需求继承不同类型的TestRunner。`ScreenshotTestRunner`代码如下：
+
     ```kotlin
     package com.thoughtworks.mp.screenshot_tests_for_android_sample
     
@@ -47,28 +62,21 @@
         }
     }   
     ```
-3. 在项目工程(application/android library)目录的`build.gradle`文件中**引用插件**，**添加依赖**，以及**修改`testInstrumentationRunner`**:
+
+4. 在项目工程(application/android library)目录的`build.gradle`文件中**修改`testInstrumentationRunner`**:
     ```groovy
-        // 引用插件
-        apply plugin: 'com.facebook.testing.screenshot'
-        
-        android {
-            defaultConfig {
-                ...
-                // 修改testInstrumentationRunner为自定义Runner
-                testInstrumentationRunner "com.thoughtworks.mp.screenshot_tests_for_android_sample.ScreenshotTestRunner"
-            }
-        }
-        dependencies {
-            ...
-            // 添加依赖
-            androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-common:0.13.0'
-            androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-litho:0.13.0'
+    android {
+      defaultConfig {
+        ...
+          // 修改testInstrumentationRunner为自定义Runner
+          testInstrumentationRunner "com.thoughtworks.mp.screenshot_tests_for_android_sample.ScreenshotTestRunner"
+      }
     }
     ```
-4. 在`AndroidManifest.xml`中添加sdcard写权限：
+
+5. 在`AndroidManifest.xml`中添加sdcard写权限：
     ```xml 
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     ```
 
 ## 测试
