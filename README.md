@@ -120,7 +120,7 @@
         
         > 安装并运行截图测试，然后生成report
         
-    - verify\<App Variant>AndroidTestScreenshotTest
+    - verify\<App Variant>AndroidTestScreenshot
         > 安装并运行截图测试，然后对比上一次的记录的截图验证它们的输出
         
     
