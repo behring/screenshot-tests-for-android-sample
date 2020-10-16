@@ -29,7 +29,7 @@
     }
     ```
     
-3. 在`src/androidTest/java`目录下创建自定义`ScreenshotTestRunner`，`ScreenshotTestRunner`根据项目测试需求继承不同类型的TestRunner。`ScreenshotTestRunner`代码如下：
+3. 在**application工程**下的`src/androidTest/java`目录下创建自定义`ScreenshotTestRunner`，`ScreenshotTestRunner`根据项目测试需求继承不同类型的TestRunner。`ScreenshotTestRunner`代码如下：
 
     ```kotlin
     package com.thoughtworks.mp.screenshot_tests_for_android_sample
@@ -63,7 +63,7 @@
     }   
     ```
 
-4. 在项目工程(application/android library)目录的`build.gradle`文件中**修改`testInstrumentationRunner`**:
+4. 在**application工程**下根目录的`build.gradle`文件中**修改`testInstrumentationRunner`**:
     ```groovy
     android {
       defaultConfig {
@@ -104,23 +104,23 @@
     ```
     
 2. 运行测试生成截图。`com.facebook.testing.screenshot`插件为我们提供了如下gradle task:
-    - clean<App Variant>AndroidTestScreenshots
+    - clean\<App Variant\>AndroidTestScreenshots
         
         > 清除最后一次生成的截图report
         
-    - pull<App Variant>AndroidTestScreenshots
+    - pull\<App Variant>AndroidTestScreenshots
         
         > 从设备中获取截图
         
-    - record<App Variant>AndroidTestScreenshots
+    - record\<App Variant>AndroidTestScreenshots
         
         > 安装并运行截图测试，然后为后续验证记录输出结果
         
-    - run<App Variant>AndroidTestScreenshots
+    - run\<App Variant>AndroidTestScreenshots
         
         > 安装并运行截图测试，然后生成report
         
-    - verify<App Variant>AndroidTestScreenshots
+    - verify\<App Variant>AndroidTestScreenshots
         > 安装并运行截图测试，然后对比上一次的记录的截图验证它们的输出
         
     
