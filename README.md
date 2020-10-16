@@ -46,30 +46,30 @@ screenshot-tests-for-android是一个基于截图的测试库。在android运行
             super.finish(resultCode, results)
         }
     }   
- ```
+    ```
 3. 在项目工程(application/android library)目录的`build.gradle`文件中**引用插件**，**添加依赖**，以及**修改`testInstrumentationRunner`**:
     ```groovy
-    // 引用插件
-    apply plugin: 'com.facebook.testing.screenshot'
-    
-    android {
-        defaultConfig {
-            ...
-            // 修改testInstrumentationRunner为自定义Runner
-            testInstrumentationRunner "com.thoughtworks.mp.screenshot_tests_for_android_sample.ScreenshotTestRunner"
+        // 引用插件
+        apply plugin: 'com.facebook.testing.screenshot'
+        
+        android {
+            defaultConfig {
+                ...
+                // 修改testInstrumentationRunner为自定义Runner
+                testInstrumentationRunner "com.thoughtworks.mp.screenshot_tests_for_android_sample.ScreenshotTestRunner"
+            }
         }
+        dependencies {
+            ...
+            // 添加依赖
+            androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-common:0.13.0'
+            androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-litho:0.13.0'
     }
-    dependencies {
-        ...
-        // 添加依赖
-        androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-common:0.13.0'
-        androidTestImplementation 'com.facebook.testing.screenshot:layout-hierarchy-litho:0.13.0'
-}
     ```
 4. 在`AndroidManifest.xml`中添加sdcard写权限：
-```xml 
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-```
+    ```xml 
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    ```
 
 ## 测试
 1. 在`src/androidTest/java`目录下创建测试文件并编写测试代码，例如`MainActivityUITest.kt`代码如下：
