@@ -104,23 +104,23 @@
     ```
     
 2. 运行测试生成截图。`com.facebook.testing.screenshot`插件为我们提供了如下gradle task:
-    - clean\<App Variant\>AndroidTestScreenshots
+    - clean\<App Variant\>AndroidTestScreenshotTest
         
         > 清除最后一次生成的截图report
         
-    - pull\<App Variant>AndroidTestScreenshots
+    - pull\<App Variant>AndroidTestScreenshotTest
         
         > 从设备中获取截图
         
-    - record\<App Variant>AndroidTestScreenshots
+    - record\<App Variant>AndroidTestScreenshotTest
         
         > 安装并运行截图测试，然后为后续验证记录输出结果
         
-    - run\<App Variant>AndroidTestScreenshots
+    - run\<App Variant>AndroidTestScreenshotTest
         
         > 安装并运行截图测试，然后生成report
         
-    - verify\<App Variant>AndroidTestScreenshots
+    - verify\<App Variant>AndroidTestScreenshotTest
         > 安装并运行截图测试，然后对比上一次的记录的截图验证它们的输出
         
     
