@@ -104,11 +104,11 @@
     ```
     
 2. 运行测试生成截图。`com.facebook.testing.screenshot`插件为我们提供了如下gradle task:
-    - clean\<App Variant\>AndroidTestScreenshotTest
+    - clean\<App Variant\>AndroidTestScreenshots
         
         > 清除最后一次生成的截图report
         
-    - pull\<App Variant>AndroidTestScreenshotTest
+    - pull\<App Variant>AndroidTestScreenshots
         
         > 从设备中获取截图
         
@@ -125,5 +125,4 @@
         
     
     因此，首次运行截图测试时，应该调用`./gradlew recordDebugAndroidTestScreenshots`生成base截图，作为验证UI样式的基准。之后运行`./gradlew verifyDebugAndroidTestScreenshots`来判断UI是否发生变化。
-    
     
